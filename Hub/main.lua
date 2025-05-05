@@ -91,20 +91,20 @@ FinishLoading()
 -- testing
 library:CreateGUI()
  
- library:CreateCategory({
- 	Name = "Action",
+library:CreateCategory({
+	Name = "Test0",
  	Icon = getcustomasset("Baya/UIAssets/ActionIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
- })
+})
  
- library:CreateCategory({
+library:CreateCategory({
  	Name = "Test1",
  	Icon = getcustomasset("Baya/UIAssets/PrayerIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
- })
+})
  
- library:CreateCategory({
+library:CreateCategory({
  	Name = "Test2",
  	Icon = getcustomasset("Baya/UIAssets/PrayerIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
- })
+})
