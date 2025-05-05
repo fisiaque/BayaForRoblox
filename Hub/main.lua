@@ -5,13 +5,13 @@ repeat task.wait() until game:IsLoaded()
 
 if identifyexecutor then
     if table.find({"Argon", "Wave"}, ({identifyexecutor()})[1]) then
-		getgenv().setthreadidentity = nil
+		getgenv().setthreadidentity = nil;
 	end
 end
 
-local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n"
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaUILibrary/main/src.lua", true))()
-shared.library = library
+local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n";
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaUILibrary/main/src.lua", true))();
+shared.library = library;
 
 local loadstring = function(...)
 	local res, err = loadstring(...)
@@ -72,7 +72,7 @@ local function FinishLoading()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/" .. readfile("Baya/Hub/commit.txt") .. "/loader.lua", true), "loader")()
             ]]
 
-            queue_on_teleport(teleportScript)
+            queue_on_teleport(teleportScript);
         end
     end))
 end
@@ -82,29 +82,29 @@ local suc, res = pcall(function()
     return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
 end)
 if suc and res ~= "404: Not Found" then
-    loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...)
+    loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...);
 end
 
 -- finish load
-FinishLoading()
+FinishLoading();
 
 -- testing
-library:CreateGUI()
+library:CreateGUI();
  
 library:CreateCategory({
 	Name = "Test0",
  	Icon = getcustomasset("Baya/UIAssets/ActionIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
-})
+});
  
 library:CreateCategory({
  	Name = "Test1",
  	Icon = getcustomasset("Baya/UIAssets/PrayerIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
-})
+});
  
 library:CreateCategory({
  	Name = "Test2",
  	Icon = getcustomasset("Baya/UIAssets/PrayerIcon.png"),
  	Size = UDim2.fromOffset(13, 14)
-})
+});

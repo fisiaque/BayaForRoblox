@@ -11,7 +11,7 @@ local isfile = isfile or function(file)
 	return suc and res ~= nil and res ~= ""
 end
 local delfile = delfile or function(file)
-	writefile(file, "")
+	writefile(file, "");
 end
 
 local function DownloadFile(path, func)
@@ -21,14 +21,14 @@ local function DownloadFile(path, func)
 		end)
 
 		if not suc or res == "404: Not Found" then
-			error(res)
+			error(res);
 		end
 
 		if path:find(".lua") then
-			res = marked .. res
+			res = marked .. res;
 		end
 
-		writefile(path, res)
+		writefile(path, res);
 	end
 	return (func or readfile)(path)
 end
@@ -39,8 +39,7 @@ local function WipeFolder(path)
 	for _, file in listfiles(path) do
 		if file:find("loader") then continue end
 		if isfile(file) and select(1, readfile(file):find("--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.")) == 1 then
-			print(file)
-			delfile(file)
+			delfile(file);
 		end
 	end
 end
@@ -48,29 +47,29 @@ end
 local function CreateFolders()
 	for _, folder in hubFolders do
 		if not isfolder(folder) then
-			makefolder(folder)
+			makefolder(folder);
 		end
 	end
 end
 
 -- create neccessary folders if they don't exist
-CreateFolders()
+CreateFolders();
 
 -- update BayaForRoblox
 local _, subbed = pcall(function()
     return game:HttpGet("https://github.com/fisiaque/BayaForRoblox")
 end)
-local commit = subbed:find("currentOid")
-commit = commit and subbed:sub(commit + 13, commit + 52) or nil
-commit = commit and #commit == 40 and commit or "main"
+local commit = subbed:find("currentOid");
+commit = commit and subbed:sub(commit + 13, commit + 52) or nil;
+commit = commit and #commit == 40 and commit or "main";
 
 if commit == "main" or (isfile("Baya/Hub/commit.txt") and readfile("Baya/Hub/commit.txt") or "") ~= commit then
-    WipeFolder("Baya/Hub")
-	WipeFolder("Baya/Hub/Games")
+    WipeFolder("Baya/Hub");
+	WipeFolder("Baya/Hub/Games");
 end
 
-CreateFolders() -- recreate any delete folders i.e Games Folder sincce it got wiped
+CreateFolders(); -- recreate any delete folders i.e Games Folder sincce it got wiped
 
-writefile("Baya/Hub/commit.txt", commit)
+writefile("Baya/Hub/commit.txt", commit);
 
 return loadstring(downloadFile("Baya/Hub/main.lua"), "main")()
