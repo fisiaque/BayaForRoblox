@@ -38,7 +38,10 @@ local function WipeFolder(path)
 
 	for _, file in listfiles(path) do
 		if file:find("loader") then continue end
-		if isfile(file) and select(1, readfile(file):find("--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.")) == 1 then
+
+		local string = string.gsub(marked, "\n", "")
+		
+		if isfile(file) and select(1, readfile(file):find(string)) == 1 then
 			delfile(file);
 		end
 	end

@@ -85,7 +85,7 @@ loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
 
 -- load games
 local suc, res = pcall(function()
-    return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
+    return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/" .. readfile("Baya/Hub/commit.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
 end)
 if suc and res ~= "404: Not Found" then
     loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...);
@@ -95,12 +95,6 @@ end
 FinishLoading();
 
 -- testing
-library:CreateCategory({
-	Name = "Test0",
- 	Icon = "Baya/UIAssets/ActionIcon.png",
- 	Size = UDim2.fromOffset(13, 14)
-});
- 
 library:CreateCategory({
  	Name = "Test1",
  	Icon = "Baya/UIAssets/PrayerIcon.png",
