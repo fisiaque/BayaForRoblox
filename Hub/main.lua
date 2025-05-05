@@ -77,6 +77,9 @@ local function FinishLoading()
     end))
 end
 
+-- load universal
+loadstring(downloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
+
 -- load games
 local suc, res = pcall(function()
     return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
