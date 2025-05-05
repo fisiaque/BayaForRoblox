@@ -16,7 +16,7 @@ end
 local function DownloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function() 
-			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
+			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/commit2.txt").."/"..select(1, path:gsub("Baya/", "")), true)
 		end)
 
 		if not suc or res == "404: Not Found" then
@@ -44,7 +44,7 @@ local function WipeFolder(path)
 end
 
 -- create neccessary folders
-for _, folder in {'Baya/Games'} do
+for _, folder in {"Baya/Games"} do
 	if not isfolder(folder) then
 		makefolder(folder)
 	end
@@ -52,17 +52,17 @@ end
 
 -- update BayaForRoblox
 local _, subbed = pcall(function()
-    return game:HttpGet('https://github.com/fisiaque/BayaForRoblox')
+    return game:HttpGet("https://github.com/fisiaque/BayaForRoblox")
 end)
-local commit = subbed:find('currentOid')
-commit = commit and subbed:sub(commit + 13, commit + 52) or nil
-commit = commit and #commit == 40 and commit or 'main'
+local commit2 = subbed:find("currentOid")
+commit2 = commit2 and subbed:sub(commit2 + 13, commit2 + 52) or nil
+commit2 = commit2 and #commit2 == 40 and commit2 or "main"
 
-if commit == 'main' or (isfile('Baya/commit2.txt') and readfile('Baya/commit2.txt') or '') ~= commit then
-    wipeFolder('Baya/commit2.txt') -- hub commit
-    wipeFolder('Baya/Games')
+if commit2 == "main" or (isfile("Baya/commit2.txt") and readfile("Baya/commit2.txt") or "") ~= commit2 then
+    wipeFolder("Baya/commit2.txt") -- hub commit2
+    wipeFolder("Baya/Games")
 end
 
-writefile('Baya/commit2.txt', commit) -- write commit for hub (1=library, 2=hub)
+writefile("Baya/commit2.txt", commit2) -- write commit2 for hub (1=library, 2=hub)
 
-return loadstring(downloadFile('Baya/main.lua'), 'main')()
+return loadstring(downloadFile("Baya/main.lua"), "main")()
