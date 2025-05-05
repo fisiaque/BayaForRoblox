@@ -60,7 +60,8 @@ commit = commit and subbed:sub(commit + 13, commit + 52) or nil
 commit = commit and #commit == 40 and commit or "main"
 
 if commit == "main" or (isfile("Baya/Hub/commit.txt") and readfile("Baya/Hub/commit.txt") or "") ~= commit then
-    wipeFolder("Baya/Hub")
+    wipeFolder("Baya/Hub/commit.txt")
+	wipeFolder("Baya/Hub/Games")
 end
 
 writefile("Baya/Hub/commit.txt", commit)
