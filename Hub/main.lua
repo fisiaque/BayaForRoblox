@@ -27,7 +27,7 @@ local queue_on_teleport = queue_on_teleport or function() end
 local function DownloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function()
-			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/commit2.txt").."/"..select(1, path:gsub("Baya/", "")), true)
+			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
 		end)
 
 		if not suc or res == "404: Not Found" then
@@ -69,7 +69,7 @@ local function FinishLoading()
             teleportedServers = true
 
             local teleportScript = [[
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/commit2.txt").."/loader.lua", true), "loader")()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/" .. readfile("Baya/Hub/commit.txt") .. "/loader.lua", true), "loader")()
             ]]
 
             queue_on_teleport(teleportScript)
@@ -79,10 +79,10 @@ end
 
 -- load games
 local suc, res = pcall(function()
-    return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/commit2.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
+    return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt") .. "/Games/" .. game.PlaceId .. ".lua", true)
 end)
 if suc and res ~= "404: Not Found" then
-    loadstring(DownloadFile("Baya/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...)
+    loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...)
 end
 
 -- finish load
