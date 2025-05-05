@@ -27,7 +27,7 @@ local queue_on_teleport = queue_on_teleport or function() end
 local function DownloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function()
-			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
+			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/" .. readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
 		end)
 
 		if not suc or res == "404: Not Found" then
