@@ -1,5 +1,6 @@
 -- variable
 local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n"
+local hubFolders = {"Baya/Hub", "Baya/Hub/Games"}
 
 -- funcs
 local isfile = isfile or function(file)
@@ -45,12 +46,16 @@ local function WipeFolder(path)
 	end
 end
 
--- create neccessary folders
-for _, folder in {"Baya/Hub", "Baya/Hub/Games"} do
-	if not isfolder(folder) then
-		makefolder(folder)
+local function CreateFolders()
+	for _, folder in hubFolders do
+		if not isfolder(folder) then
+			makefolder(folder)
+		end
 	end
 end
+
+-- create neccessary folders if they don't exist
+CreateFolders()
 
 -- update BayaForRoblox
 local _, subbed = pcall(function()
@@ -61,9 +66,11 @@ commit = commit and subbed:sub(commit + 13, commit + 52) or nil
 commit = commit and #commit == 40 and commit or "main"
 
 if commit == "main" or (isfile("Baya/Hub/commit.txt") and readfile("Baya/Hub/commit.txt") or "") ~= commit then
-    WipeFolder("Baya/Hub/commit.txt")
+    WipeFolder("Baya/Hub")
 	WipeFolder("Baya/Hub/Games")
 end
+
+CreateFolders() -- recreate any delete folders i.e Games Folder sincce it got wiped
 
 writefile("Baya/Hub/commit.txt", commit)
 
