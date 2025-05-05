@@ -77,6 +77,9 @@ local function FinishLoading()
     end))
 end
 
+-- create main library gui
+library:CreateGUI();
+
 -- load universal
 loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
 
@@ -92,8 +95,6 @@ end
 FinishLoading();
 
 -- testing
-library:CreateGUI();
- 
 library:CreateCategory({
 	Name = "Test0",
  	Icon = "Baya/UIAssets/ActionIcon.png",
