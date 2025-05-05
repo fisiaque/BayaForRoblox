@@ -72,4 +72,4 @@ CreateFolders(); -- recreate any delete folders i.e Games Folder sincce it got w
 
 writefile("Baya/Hub/commit.txt", commit);
 
-return loadstring(downloadFile("Baya/Hub/main.lua"), "main")()
+return loadstring(DownloadFile("Baya/Hub/main.lua"), "main")()

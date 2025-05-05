@@ -78,7 +78,7 @@ local function FinishLoading()
 end
 
 -- load universal
-loadstring(downloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
+loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
 
 -- load games
 local suc, res = pcall(function()
