@@ -34,7 +34,6 @@ local function DownloadFile(path, func)
 end
 
 local function WipeFolder(path)
-	print(isfolder(path))
 	if not isfolder(path) then return end
 
 	for _, file in listfiles(path) do
