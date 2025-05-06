@@ -41,7 +41,7 @@ local function WipeFolder(path)
 
 		local string = string.gsub(marked, "\n", "")
 		
-		if isfile(file) and select(1, readfile(file):find(string)) == 1 then
+		if isfile(file) and select(1, readfile(file):find("--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.")) == 1 then
 			delfile(file);
 		end
 	end
