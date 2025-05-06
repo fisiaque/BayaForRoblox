@@ -17,7 +17,8 @@ end
 local function DownloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function() 
-			print("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")))
+			print(path)
+			print(select(1, path:gsub("Baya/", "")))
 			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
 		end)
 
