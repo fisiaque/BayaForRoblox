@@ -72,8 +72,8 @@ if commit == "main" or (isfile("Baya/Hub/commit.txt") and readfile("Baya/Hub/com
     WipeFolder("Baya/Hub");
 end
 
-CreateFolders(); -- recreate any delete folders i.e Games Folder sincce it got wiped
-
 writefile("Baya/Hub/commit.txt", commit);
+
+CreateFolders(); -- recreate any delete folders i.e Games Folder sincce it got wiped
 
 return loadstring(DownloadFile("Baya/Hub/main.lua"), "main")()
