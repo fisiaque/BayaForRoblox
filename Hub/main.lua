@@ -16,8 +16,7 @@ shared.library = library;
 local loadstring = function(...)
 	local res, err = loadstring(...)
 	if err and library then
-        print("Baya", "Failed to load : "..err, 30, "alert") -- REMOVE
-	--	library:CreateNotification("Baya", "Failed to load : "..err, 30, "alert")
+		library:CreateNotification("Baya", "Failed to load : "..err, 30, "Alert")
 	end
 	return res
 end
@@ -80,8 +79,8 @@ end
 -- create main library gui
 library:CreateGUI();
 
--- load universal
-loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
+-- load Universal
+loadstring(DownloadFile('Baya/Hub/Games/Universal.lua'), 'Universal')()
 
 -- load games
 local suc, res = pcall(function()
@@ -91,18 +90,19 @@ if suc and res ~= "404: Not Found" then
     loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...);
 end
 
+-- testing started
+library:CreateCategory({
+	Name = "Test1",
+	Icon = "Baya/UIAssets/PrayerIcon.png",
+	Size = UDim2.fromOffset(13, 14)
+});
+
+library:CreateCategory({
+	Name = "Test2",
+	Icon = "Baya/UIAssets/PrayerIcon.png",
+	Size = UDim2.fromOffset(13, 14)
+});
+-- testing finished
+
 -- finish load
 FinishLoading();
-
--- testing
-library:CreateCategory({
- 	Name = "Test1",
- 	Icon = "Baya/UIAssets/PrayerIcon.png",
- 	Size = UDim2.fromOffset(13, 14)
-});
- 
-library:CreateCategory({
- 	Name = "Test2",
- 	Icon = "Baya/UIAssets/PrayerIcon.png",
- 	Size = UDim2.fromOffset(13, 14)
-});
