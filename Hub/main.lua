@@ -82,7 +82,7 @@ end
 library:CreateGUI();
 
 -- load Universal
-loadstring(DownloadFile('Baya/Hub/Games/Universal.lua'), 'Universal')()
+loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
 
 -- load games
 local suc, res = pcall(function()
