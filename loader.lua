@@ -38,10 +38,10 @@ end
 local function WipeFolder(path)
 	if not isfolder(path) then return end
 
+	local string = string.gsub(marked, "\n", "")
+
 	for _, file in listfiles(path) do
 		if file:find("loader") then continue end
-
-		local string = string.gsub(marked, "\n", "")
 		local search = select(1, readfile(file):find(string))
 
 		if isfile(file) and search == 1 then
