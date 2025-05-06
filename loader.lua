@@ -16,12 +16,10 @@ end
 
 local function DownloadFile(path, func)
 	if not isfile(path) then
+		local correct = select(1, path:gsub("Baya/", ""))
+
 		local suc, res = pcall(function() 
-			print(path)
-			print(select(1, path:gsub("Baya/", "")))
-			local x = select(1, path:gsub("Baya/", ""))
-			print(x)
-			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
+			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/" .. readfile("Baya/Hub/commit.txt") .. "/" .. correct, true)
 		end)
 
 		if not suc or res == "404: Not Found" then
@@ -44,8 +42,9 @@ local function WipeFolder(path)
 		if file:find("loader") then continue end
 
 		local string = string.gsub(marked, "\n", "")
-		
-		if isfile(file) and select(1, readfile(file):find(string)) == 1 then
+		local search = select(1, readfile(file):find(string))
+
+		if isfile(file) and search == 1 then
 			delfile(file);
 		end
 	end
