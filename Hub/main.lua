@@ -16,7 +16,7 @@ shared.library = library;
 local loadstring = function(...)
 	local res, err = loadstring(...)
 	if err and library then
-		library:CreateNotification("Baya", "Failed to load : "..err, 30, "Alert")
+		library:CreateNotification("Baya", "Failed to load : " .. err, 30, "Alert")
 	end
 	return res
 end

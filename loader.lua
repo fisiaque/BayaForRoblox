@@ -41,7 +41,7 @@ local function WipeFolder(path)
 
 		local string = string.gsub(marked, "\n", "")
 		
-		if isfile(file) and select(1, readfile(file):find("--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.")) == 1 then
+		if isfile(file) and select(1, readfile(file):find(string)) == 1 then
 			delfile(file);
 		end
 	end
@@ -67,8 +67,8 @@ commit = commit and subbed:sub(commit + 13, commit + 52) or nil;
 commit = commit and #commit == 40 and commit or "main";
 
 if commit == "main" or (isfile("Baya/Hub/commit.txt") and readfile("Baya/Hub/commit.txt") or "") ~= commit then
-    WipeFolder("Baya/Hub");
 	WipeFolder("Baya/Hub/Games");
+    WipeFolder("Baya/Hub");
 end
 
 CreateFolders(); -- recreate any delete folders i.e Games Folder sincce it got wiped
