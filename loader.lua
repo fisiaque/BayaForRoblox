@@ -19,6 +19,8 @@ local function DownloadFile(path, func)
 		local suc, res = pcall(function() 
 			print(path)
 			print(select(1, path:gsub("Baya/", "")))
+			local x = select(1, path:gsub("Baya/", ""))
+			print(x)
 			return game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaForRoblox/"..readfile("Baya/Hub/commit.txt").."/"..select(1, path:gsub("Baya/", "")), true)
 		end)
 
