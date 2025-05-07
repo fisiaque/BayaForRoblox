@@ -1,9 +1,11 @@
 -- wait for game full loaded
 repeat task.wait() until game:IsLoaded()
 if shared.baya then shared.baya:Uninject() end
+if shared.Init then return end
+
+shared.Init = true -- prevents multiple intances
 
 -- maybe add kill switch here is not allowed? Using Whitelist!
-
 if identifyexecutor then
     if table.find({"Argon", "Wave"}, ({identifyexecutor()})[1]) then
 		getgenv().setthreadidentity = nil;
@@ -52,7 +54,7 @@ local function WipeFolder(path)
 
 	for _, file in listfiles(path) do
 		if file:find("loader") then continue end
-		
+
 		local search = select(1, readfile(file):find(string))
 
 		if isfile(file) and search == 1 then
