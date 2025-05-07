@@ -1,6 +1,3 @@
-if shared.Init then return end
-shared.Init = true;
-
 -- variable
 local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n"
 local hubFolders = {"Baya/Hub", "Baya/Hub/Games"}
