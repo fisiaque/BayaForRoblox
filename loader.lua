@@ -1,5 +1,6 @@
 -- wait for game full loaded
 repeat task.wait() until game:IsLoaded()
+
 if shared.baya then shared.baya:Uninject() end
 if shared.Init then return end
 
