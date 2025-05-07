@@ -59,8 +59,8 @@ local function CreateFolders()
 end
 
 -- Uninject if baya hub exists
-if shared.Loaded and shared.libraryapi then
-	shared.libraryapi:Uninject()
+if shared.Loaded and shared.library then
+	shared.library:Uninject()
 end
 
 -- create neccessary folders if they don't exist
