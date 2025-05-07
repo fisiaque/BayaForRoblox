@@ -45,6 +45,22 @@ local function DownloadFile(path, func)
 	return (func or readfile)(path)
 end
 
+local function WipeFolder(path)
+	if not isfolder(path) then return end
+
+	local string = string.gsub(marked, "\n", "")
+
+	for _, file in listfiles(path) do
+		if file:find("loader") then continue end
+		
+		local search = select(1, readfile(file):find(string))
+
+		if isfile(file) and search == 1 then
+			delfile(file);
+		end
+	end
+end
+
 local isfile = isfile or function(file)
 	local suc, res = pcall(function()
 		return readfile(file)
