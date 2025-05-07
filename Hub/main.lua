@@ -1,6 +1,9 @@
 -- wait for game full loaded
 repeat task.wait() until game:IsLoaded()
 if shared.baya then shared.baya:Uninject() end
+if shared.Init then return end
+
+shared.Init = true
 
 -- maybe add kill switch here is not allowed? Using Whitelist!
 
@@ -83,7 +86,6 @@ library:CreateGUI();
 
 -- shared.baya update to library
 shared.baya = library;
-shared.Init = nil
 
 -- load Universal
 loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
