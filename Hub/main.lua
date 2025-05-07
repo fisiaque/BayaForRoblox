@@ -83,6 +83,7 @@ library:CreateGUI();
 
 -- shared.baya update to library
 shared.baya = library;
+shared.Init = nil
 
 -- load Universal
 loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
