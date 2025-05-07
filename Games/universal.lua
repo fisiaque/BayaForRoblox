@@ -11,9 +11,13 @@ test0:CreateButton({Name = 'Hello World',
 	Tooltip = "Notify the WORLD!"
 })
 
-test0:CreateButton({Name = 'Hello Rehad',
+test0:CreateToggle({Name = 'Hello Rehad',
 	Function = function(callback)
-		shared.baya:CreateNotification("test0", "Hello Rehad pressed", 2, "Alert")
+		if callback then
+			shared.baya:CreateNotification("test0", "Rehad ON", 2, "Alert")
+		else
+			shared.baya:CreateNotification("test0", "Rehad OFF", 2, "Alert")
+		end
 	end,
 	Tooltip = "Rehad is cool huh!"
 })
