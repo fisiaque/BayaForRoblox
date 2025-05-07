@@ -1,5 +1,6 @@
 -- wait for game full loaded
 repeat task.wait() until game:IsLoaded()
+if shared.baya then shared.baya:Uninject() end
 
 -- maybe add kill switch here is not allowed? Using Whitelist!
 
@@ -9,14 +10,8 @@ if identifyexecutor then
 	end
 end
 
--- Uninject if baya hub exists
-if shared.Loaded and shared.library then
-	shared.library:Uninject()
-end
-
 local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n";
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaUILibrary/main/src.lua", true))();
-shared.library = library;
 
 local loadstring = function(...)
 	local res, err = loadstring(...)
@@ -85,6 +80,9 @@ end
 
 -- create main library gui
 library:CreateGUI();
+
+-- shared.baya update to library
+shared.baya = library;
 
 -- load Universal
 loadstring(DownloadFile('Baya/Hub/Games/universal.lua'), 'universal')()
