@@ -9,6 +9,11 @@ if identifyexecutor then
 	end
 end
 
+-- Uninject if baya hub exists
+if shared.Loaded and shared.library then
+	shared.library:Uninject()
+end
+
 local marked = "--MARKED: DELETE IF CACHED INCASE BAYA UPDATES.\n";
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/fisiaque/BayaUILibrary/main/src.lua", true))();
 shared.library = library;
