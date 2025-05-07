@@ -1,23 +1,19 @@
-local test0 = shared.library:CreateCategory({
+local test0 = libraryapi:CreateCategory({
 	Name = "Test0",
- 	Icon = "Baya/UIAssets/ActionIcon.png",
- 	Size = UDim2.fromOffset(13, 14)
+	Icon = "Baya/UIAssets/ActionIcon.png",
+	Size = UDim2.fromOffset(13, 14)
 });
 
-local hello = test0:CreateModule({
-	Name = 'Hello World',
+test0:CreateButton({Name = 'Hello World',
+	Function = function(callback)
+		shared.library:CreateNotification("test0", "Hello World pressed", 2, "Warning")
+	end,
+	Tooltip = "Notify the WORLD!"
 })
 
-hello:CreateButton({Name = 'sh00t',
+test0:CreateButton({Name = 'Hello Rehad',
 	Function = function(callback)
-		print("BAM BAM BAM")
+		shared.library:CreateNotification("test0", "Hello Rehad pressed", 2, "Alert")
 	end,
-	Tooltip = '!!!'
-})
-
-hello:CreateButton({Name = 'Auto Boom',
-	Function = function(callback)
-		print("gg ff gg")
-	end,
-	Tooltip = "Sdawdsadwadswwwwwwwwwwwwwwwwwwwwwwwwwww"
+	Tooltip = "Rehad is cool huh!"
 })

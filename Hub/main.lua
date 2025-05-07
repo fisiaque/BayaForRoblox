@@ -92,19 +92,5 @@ if suc and res ~= "404: Not Found" then
     loadstring(DownloadFile("Baya/Hub/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...);
 end
 
--- testing started
-library:CreateCategory({
-	Name = "Test1",
-	Icon = "Baya/UIAssets/PrayerIcon.png",
-	Size = UDim2.fromOffset(13, 14)
-});
-
-library:CreateCategory({
-	Name = "Test2",
-	Icon = "Baya/UIAssets/PrayerIcon.png",
-	Size = UDim2.fromOffset(13, 14)
-});
--- testing finished
-
 -- finish load
 FinishLoading();
