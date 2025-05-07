@@ -1,4 +1,4 @@
-local test0 = libraryapi:CreateCategory({
+local test0 = shared.library:CreateCategory({
 	Name = "Test0",
 	Icon = "Baya/UIAssets/ActionIcon.png",
 	Size = UDim2.fromOffset(13, 14)
