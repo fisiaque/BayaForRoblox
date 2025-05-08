@@ -80,6 +80,8 @@ local playersService = cloneref(game:GetService("Players"))
 
 -- local func
 local function FinishLoading()
+	if not shared.baya then return end
+	
     library:Load() -- load
 
     local teleportedServers
