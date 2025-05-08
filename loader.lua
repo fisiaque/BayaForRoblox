@@ -119,9 +119,6 @@ writefile("Baya/Commits/Hub.txt", commit);
 -- create main library gui
 library:CreateGUI();
 
--- shared.baya update to library
-shared.baya = library;
-
 -- load Universal
 loadstring(DownloadFile('Baya/Games/universal.lua'), 'universal')()
 
