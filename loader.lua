@@ -119,7 +119,7 @@ writefile("Baya/Commits/Hub.txt", commit);
 -- create main library gui
 library:CreateGUI();
 
--- shared.baya update to library
+-- bind library to global variable: shared.baya
 shared.baya = library;
 
 -- load Universal
