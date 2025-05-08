@@ -41,3 +41,14 @@ test0:CreateSlider({
 	end,
 	Tooltip = "Are you COOL!"
 })
+
+test0:CreateTextBox({
+	Name = 'Text Here',
+	Placeholder = 'Any Text Boy',
+	Function = function(...)
+		local text, enterPressed = table.unpack(...)
+
+		shared.baya:CreateNotification("TextBox: " .. tostring(enterPressed), text, 2, "Alert")
+	end,
+	Tooltip = "What text are you going to write!"
+})
