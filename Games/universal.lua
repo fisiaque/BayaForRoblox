@@ -1,6 +1,6 @@
 local test0 = shared.baya:CreateCategory({
 	Name = "Test0",
-	Icon = "Baya/UIAssets/ActionIcon.png",
+	Icon = "Baya/Assets/ActionIcon.png",
 	Size = UDim2.fromOffset(13, 14)
 });
 
