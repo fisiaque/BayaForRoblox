@@ -52,3 +52,29 @@ test0:CreateTextBox({
 	end,
 	Tooltip = "What text are you going to write!"
 })
+
+ESP = test0:CreateModule({
+	Name = 'ESP',
+	Function = function(callback)
+		print("ESP: " .. tostring(callback))
+	end,
+	Tooltip = 'Highlights players or entities through walls'
+})
+Mode = ESP:CreateDropdown({
+	Name = 'Mode',
+	List = {'Box', 'Chams'},
+	Function = function(val)
+		print("MODE: " .. tostring(val))
+	end,
+	Tooltip = 'Box - Draws a box around players\nChams - Highlights players with see-through colors'
+})
+Opacity = ESP:CreateSlider({
+	Name = 'Opacity',
+	Min = 0,
+	Max = 1,
+	Default = 1,
+	Decimal = 4,
+	Function = function(val)
+		print("OPACITY: " .. tostring(val))
+	end,
+})
