@@ -118,11 +118,12 @@ end
 
 writefile("Baya/Commits/Hub.txt", commit);
 
--- create main library gui
+-- create main library gui & info pane
 local main = library:CreateGUI();
+local info = main:CreateInfoPane()
 
 -- create divider
-main:CreateDivider({
+info:CreateDivider({
 	Text = playersService.LocalPlayer.Name; -- test for now
 	Alignment = Enum.TextXAlignment.Center;
 })
