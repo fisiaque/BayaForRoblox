@@ -119,7 +119,13 @@ end
 writefile("Baya/Commits/Hub.txt", commit);
 
 -- create main library gui
-library:CreateGUI();
+local main = library:CreateGUI();
+
+-- create divider
+main:CreateDivider({
+	Text = playersService.LocalPlayer.Name; -- test for now
+	Alignment = Enum.TextXAlignment.Center;
+})
 
 -- bind library to global variable: shared.baya
 shared.baya = library;
