@@ -132,11 +132,11 @@ if suc and res ~= "404: Not Found" then
     loadstring(DownloadFile("Baya/Games/" .. game.PlaceId .. ".lua"), tostring(game.PlaceId))(...);
 end
 
--- Information
-local info = main:CreateInfoPane()
+-- Settings
+local setting = main:CreateSettingsPane()
 
 -- create divider
-info:CreateDivider({
+setting:CreateDivider({
 	Text = playersService.LocalPlayer.Name; -- test for now
 	Alignment = Enum.TextXAlignment.Center;
 })
