@@ -49,19 +49,17 @@ local function DownloadFile(path, func)
 end
 
 local function WipeFolder(path)
-	if not isfolder(path) then return end
+    local match_string = marked:gsub("\n", "")
 
-	local string = string.gsub(marked, "\n", "")
-
-	for _, file in listfiles(path) do
-		if file:find("loader") then continue end
-
-		local search = select(1, readfile(file):find(string))
-
-		if isfile(file) and search == 1 then
-			delfile(file);
-		end
-	end
+    for _, file in listfiles(path) do
+        if isfile(file) then  -- Ensure it's a file, not a folder
+            local contents = readfile(file)
+            -- Check if the file starts with the marked string
+            if contents:sub(1, #match_string) == match_string then
+                delfile(file)
+            end
+        end
+    end
 end
 
 local isfile = isfile or function(file)
