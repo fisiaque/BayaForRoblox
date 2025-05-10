@@ -124,6 +124,7 @@ local info = main:CreateInfoPane()
 
 -- Settings
 libraryapi.Categories.Main:CreateSettingBar()
+
 local uiSettings = libraryapi:CreateSetting({
 	Name = "Test";
 	Icon = getcustomasset("Baya/Assets/Cog.png");
