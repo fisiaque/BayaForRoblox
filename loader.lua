@@ -118,9 +118,6 @@ end
 
 writefile("Baya/Commits/Hub.txt", commit);
 
--- create main library gui
-local main = library:CreateGUI();
-
 -- bind library to global variable: shared.baya
 shared.baya = library;
 
@@ -143,19 +140,6 @@ info:CreateDivider({
 	Text = playersService.LocalPlayer.Name; -- test for now
 	Alignment = Enum.TextXAlignment.Center;
 })
-
--- Settings
-library.Categories.Main:CreateSettingBar()
-
-local uiSettings = library:CreateSetting({
-	Name = "Test";
-	Icon = getcustomasset("Baya/Assets/Cog.png");
-	Size = UDim2.fromOffset(16, 12);
-	Position = UDim2.fromOffset(12, 14);
-	Function = function(val)
-		library:CreateNotification("Settings[test]", tostring(val), 2, "Alert")
-	end
-});
 
 -- finish load
 FinishLoading();
