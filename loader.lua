@@ -145,7 +145,7 @@ info:CreateDivider({
 })
 
 -- Settings
-libraryapi.Categories.Main:CreateSettingBar()
+library.Categories.Main:CreateSettingBar()
 
 local uiSettings = libraryapi:CreateSetting({
 	Name = "Test";
