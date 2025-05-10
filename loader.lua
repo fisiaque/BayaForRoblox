@@ -147,7 +147,7 @@ info:CreateDivider({
 -- Settings
 library.Categories.Main:CreateSettingBar()
 
-local uiSettings = libraryapi:CreateSetting({
+local uiSettings = library:CreateSetting({
 	Name = "Test";
 	Icon = getcustomasset("Baya/Assets/Cog.png");
 	Size = UDim2.fromOffset(16, 12);
