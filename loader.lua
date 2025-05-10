@@ -122,6 +122,18 @@ writefile("Baya/Commits/Hub.txt", commit);
 local main = library:CreateGUI();
 local info = main:CreateInfoPane()
 
+-- Settings
+libraryapi.Categories.Main:CreateSettingBar()
+local uiSettings = libraryapi:CreateSetting({
+	Name = "Test";
+	Icon = getcustomasset("Baya/Assets/Cog.png");
+	Size = UDim2.fromOffset(16, 12);
+	Position = UDim2.fromOffset(12, 14);
+	Function = function(val)
+		library:CreateNotification("Settings[test]", tostring(val), 2, "Alert")
+	end
+});
+
 -- create divider
 info:CreateDivider({
 	Text = playersService.LocalPlayer.Name; -- test for now
