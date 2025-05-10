@@ -133,7 +133,7 @@ if suc and res ~= "404: Not Found" then
 end
 
 -- Settings
-local setting = main:CreateSettingsPane()
+local setting = library.Categories.Main:CreateSettingsPane()
 
 -- create divider
 setting:CreateDivider({
